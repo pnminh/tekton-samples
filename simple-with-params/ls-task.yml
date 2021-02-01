@@ -1,0 +1,17 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: ls-task-with-params
+spec:
+  params:
+    - name: folderName
+      type: string
+      description: the folder to list
+      default: /etc
+  steps:
+    - name: ls-folder
+      image: alpine
+      command:
+        - ls
+      args:
+        - $(params.folderName)

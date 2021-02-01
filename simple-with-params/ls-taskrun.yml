@@ -1,0 +1,7 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: ls-taskrun-with-params
+spec:
+  taskRef:
+    name: ls-task-with-params

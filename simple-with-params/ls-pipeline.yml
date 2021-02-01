@@ -1,0 +1,14 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata: 
+  name: ls-pipeline-with-params
+spec:
+  tasks:
+    - name: ls-folder
+      taskRef:
+        name: ls-task-with-params
+      params:
+        - name: folderName
+          value: /usr
+
+

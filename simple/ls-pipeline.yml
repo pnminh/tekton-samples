@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata: 
+  name: ls-pipeline
+spec:
+  tasks:
+    - name: ls-etc
+      taskRef:
+        name: ls-task
+
+

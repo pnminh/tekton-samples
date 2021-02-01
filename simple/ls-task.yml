@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: 'ls-task'
+spec:
+  steps:
+    - name: ls-etc
+      image: alpine
+      command:
+        - ls
+      args:
+        - /etc 
