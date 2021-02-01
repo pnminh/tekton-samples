@@ -1,22 +1,17 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: build-from-git
+  name: build-from-git-task
 spec:
   # params:
   resources:
     inputs:
-      resources:
-        - name: workspace
-          type: git
-          targetPath: target-workspace
-    outputs:
-      resources:
-        - name: build-sources
-          type: ubuntu
+      - name: workspace
+        type: git
+        targetPath: simple-with-inputs-and-params/tekton-spring-sample
   steps:
     - name: build-sources
-      image: ubuntu
+      image: maven:3.6.3-openjdk-15-sli
       command:
-        - /bin/bash
-      args: ['-c', 'echo hello world']
+        - mvn
+      args: ['clean', 'install']

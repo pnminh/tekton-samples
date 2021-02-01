@@ -1,0 +1,13 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: simple-spring-boot-git
+spec:
+  type: git
+  params:
+    - name:  url
+      value: $(resources.inputs)
+    - name: revision
+      value: master
+  # params:
+    # Check https://github.com/tektoncd/pipeline/blob/master/docs/resources.md#pipelineresources for more applicable parameters
